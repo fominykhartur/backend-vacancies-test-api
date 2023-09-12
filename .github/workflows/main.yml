@@ -13,6 +13,7 @@ jobs:
         uses: elgohr/Publish-Docker-Github-Action@v4
         with:
           registry: ghcr.io
+          name: ghcr.io/fominykhartur/backend-vacancies-test-api/backend-vacancies-test-api
           username: ${{ secrets.GHCR_USERNAME }}
           password: ${{ secrets.GHCR_PASSWORD }}
           tags: 'develop'

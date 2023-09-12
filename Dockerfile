@@ -1,8 +1,13 @@
 FROM node:16.10.0-alpine
-WORKDIR /opt/app
-ADD package.json package.json
+
+WORKDIR /app
+
+COPY package*.json ./
+
 RUN npm install
-ADD . .
-RUN npm run build
-RUN npm prune --production
-CMD ["node", "./dist/main.js"]
+
+COPY . .
+
+COPY ./dist ./dist
+
+CMD ["npm", "run", "start:dev"]

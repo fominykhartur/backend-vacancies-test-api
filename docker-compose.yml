@@ -3,20 +3,18 @@ version: '3.0'
 services:
   vacancies.api:
     image: ghcr.io/fominykhartur/backend-vacancies-test-api/backend-vacancies-test-api:develop
-    container_name: vacancies-api
-    restart: always
-    ports:
-      - 3000:3000
     env_file:
       - .env
     volumes:
-      - .env:/opt/app/.env
-    depends_on:
-      - postgres
+      - .:/app
+      - /app/node_modules
+    ports:
+      - 3000:3000
+    restart: always
 
   postgres:
     container_name: postgres
-    image: postgres:12
+    image: postgres:latest
     env_file:
       - .env
     environment:

@@ -3,5 +3,6 @@ WORKDIR /opt/app
 ADD package.json package.json
 RUN npm install
 ADD . .
-
-CMD ["npm", "run", "start:dev"]
+RUN npm run build
+RUN npm prune --production
+CMD ["node", "./dist/main.js"]

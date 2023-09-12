@@ -15,9 +15,9 @@ export const getTypeormConfig = async (
   return {
     type: 'postgres',
     host: configService.get('POSTGRES_HOST'),
-    port: +configService.get('POSTGRES_PORT'),
+    port: +configService.get('POSTGRESS_PORT'),
     username: configService.get('POSTGRES_USERNAME'),
-    password: configService.get('POSTGRES_PASSWORD'),
+    password: configService.get('POSTGRESS_PASSWORD'),
     database: configService.get('POSTGRES_DB'),
     entities: [Users, Vacancies, Responses],
     autoLoadEntities: true,

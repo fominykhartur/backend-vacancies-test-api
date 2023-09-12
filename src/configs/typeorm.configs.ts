@@ -9,11 +9,11 @@ export const getTypeormConfig = async (
 ): Promise<TypeOrmModuleOptions> => {
   return {
     type: 'postgres',
-    host: configService.get('DATABASE_HOST'),
-    port: +configService.get('DATABASE_PORT'),
-    username: configService.get('DATABASE_USERNAME'),
-    password: configService.get('DATABASE_PASSWORD'),
-    database: configService.get('DATABASE_NAME'),
+    host: configService.get('POSTGRES_HOST'),
+    port: +configService.get('POSTGRES_PORT'),
+    username: configService.get('POSTGRES_USERNAME'),
+    password: configService.get('POSTGRES_PASSWORD'),
+    database: configService.get('POSTGRES_NAME'),
     entities: [Users, Vacancies, Responses],
     autoLoadEntities: true,
     synchronize: true,

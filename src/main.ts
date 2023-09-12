@@ -4,6 +4,7 @@ import { API_PREFIX } from './main.constants';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
 async function bootstrap() {
+  console.log(process.env);
   const app = await NestFactory.create(AppModule);
 
   app.setGlobalPrefix(API_PREFIX);

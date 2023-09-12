@@ -1,0 +1,29 @@
+version: '3.0'
+
+services:
+  vacancies.api:
+    image: docker.pkg.github.com/fominykhartur/backend-vacancies-test-api/backend-vacancies-test-api:develop
+    container_name: vacancies-api
+    restart: always
+    ports:
+      - 3000:3000
+    volumes:
+      - ./.env:/opt/app
+    depends_on:
+      - postgres
+
+  postgres:
+    container_name: postgres
+    image: postgres:12
+    env_file:
+      - .env
+    environment:
+      PG_DATA: /var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    restart: always
+
+volumes:
+  pgdata:

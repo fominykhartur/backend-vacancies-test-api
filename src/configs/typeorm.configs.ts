@@ -7,6 +7,11 @@ import { Vacancies } from 'src/vacancies/vacancies.entity';
 export const getTypeormConfig = async (
   configService: ConfigService,
 ): Promise<TypeOrmModuleOptions> => {
+  console.log(configService.get('POSTGRES_HOST'));
+  console.log(configService.get('POSTGRES_PORT'));
+  console.log(configService.get('POSTGRES_USERNAME'));
+  console.log(configService.get('POSTGRES_PASSWORD'));
+  console.log(configService.get('POSTGRES_DB'));
   return {
     type: 'postgres',
     host: configService.get('POSTGRES_HOST'),

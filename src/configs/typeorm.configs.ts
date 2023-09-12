@@ -13,7 +13,7 @@ export const getTypeormConfig = async (
     port: +configService.get('POSTGRES_PORT'),
     username: configService.get('POSTGRES_USERNAME'),
     password: configService.get('POSTGRES_PASSWORD'),
-    database: configService.get('POSTGRES_NAME'),
+    database: configService.get('POSTGRES_DB'),
     entities: [Users, Vacancies, Responses],
     autoLoadEntities: true,
     synchronize: true,

@@ -11,7 +11,6 @@ services:
       - ./.env:/opt/app/.env
     depends_on:
       - postgres
-
   postgres:
     container_name: postgres
     image: postgres:12

@@ -4,19 +4,12 @@ services:
   vacancies.api:
     image: ghcr.io/fominykhartur/backend-vacancies-test-api/backend-vacancies-test-api:develop
     container_name: vacancies-api
-    volumes:
-      - .:/app
-      - /app/node_modules
     ports:
-      - '3000:3000'
+      - 3000:3000
     links:
       - postgres
-    environment:
-      - POSTGRES_USERNAME=postgres
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_HOST=postgres
-      - POSTGRES_PORT=54321
-      - POSTGRES_DB=vacancies
+    env_file:
+      - .env
     restart: always
     depends_on:
       - postgres
@@ -25,7 +18,7 @@ services:
     container_name: postgres
     image: postgres:12
     ports:
-      - '5432:5432'
+      - 5432:5432
     environment:
       - POSTGRES_DB=vacancies
       - POSTGRES_PASSWORD=postgres
